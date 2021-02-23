@@ -1,17 +1,12 @@
 package com.fprojects.inputwindows;
 
-import com.fprojects.validation.*;
 import lombok.*;
-import org.hibernate.validator.constraints.*;
 
 import javax.swing.*;
-import javax.validation.constraints.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import java.util.*;
 
 /**
- *Сбор информации пользователя посредством модальных окон
+ * Сбор информации пользователя посредством модальных окон
  */
 @Data
 public class InputWindows {
@@ -21,7 +16,7 @@ public class InputWindows {
 	private String outputFileName = "";
 	private String numOFiles = "";
 	private int numberOfInputFiles;
-	private ArrayList inputFileNames = new ArrayList<String>();
+	private List inputFileNames = new ArrayList<String>();
 
 	public void collectInputInformation() {
 
@@ -75,10 +70,11 @@ public class InputWindows {
 		for (int i = 0; i < numberOfInputFiles; i++) {
 			String inpFName;
 			inpFName = JOptionPane.showInputDialog("Введите имя " + (i + 1) + " входного файла");
-			if (inpFName.matches("[a-zA-Zа-яА-ЯёЁ0-9_-]+") && !inpFName.isEmpty()) {
+			if (inpFName.matches("[.a-zA-Zа-яА-ЯёЁ0-9_-]+") && !inpFName.isEmpty()) {
 				inputFileNames.add(inpFName);
 			} else {
-				JOptionPane.showMessageDialog(null, "Имя файла должно содержать буквы русского и латинского алфавита, цифры, символы '-', '_' и не содержать спецсимволов");
+				JOptionPane.showMessageDialog(
+					null, "Имя файла должно содержать буквы русского и латинского алфавита, цифры, символы '-', '_' и не содержать спецсимволов");
 				i--;
 			}
 
