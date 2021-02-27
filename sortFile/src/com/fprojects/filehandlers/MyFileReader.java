@@ -19,6 +19,9 @@ public class MyFileReader {
 	private BufferedReader bufferedReader;
 	private int numberOfLines = 0;
 
+	/**
+	 *Создание bufferedReader и подсчёт кол-ва линий (строк) в файле
+	 */
 	public void crtReader(String path) throws IOException, FileNotFoundException {
 		file = new File(path);
 		fileReader = new FileReader(file);
@@ -27,16 +30,19 @@ public class MyFileReader {
 		bufferedReader.close();
 		fileReader = new FileReader(file);
 		bufferedReader = new BufferedReader(fileReader);
-
-
-
 	}
 
+	/**
+	 *Чтение следующей строки
+	 */
 	public String readFileLine() throws IOException {
 		String line = bufferedReader.readLine();
 		return line;
 	}
 
+	/**
+	 *Чтение всего файла и запись в лист
+	 */
 	public ArrayList readFile(String filePath) {
 		ArrayList fileArray = new ArrayList();
 

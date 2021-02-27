@@ -3,7 +3,6 @@ package com.fprojects;
 import com.fprojects.filehandlers.*;
 import com.fprojects.inputwindows.*;
 
-import javax.swing.*;
 import java.io.*;
 import java.util.*;
 
@@ -15,11 +14,10 @@ public class Main {
 		InputWindows inputWindows = new InputWindows();
 		inputWindows.collectInputInformation();
 
-		ArrayList<Integer> massiv = new ArrayList(); // заменить на вывод файлов в файл
-		int count = 0; //удалить
+		ArrayList<Integer> massiv = new ArrayList(); // заменить на вывод в файл
 
 		ArrayList<MyFileReader> listOfFiles = new ArrayList<>(); //Список с параметрами каждого файла и ридером
-		ArrayList<Integer> countLinesInFiles = new ArrayList<>(); //Списокс счётчиков номера текущей в каждом файле
+		ArrayList<Integer> countLinesInFiles = new ArrayList<>(); //Список счётчиков номера текущей линии (строки) в каждом файле
 		for (int i = 0; i < inputWindows.getNumberOfInputFiles(); i++ ) {
 			MyFileReader myFileReader = new MyFileReader();
 			myFileReader.crtReader((String)inputWindows.getInputFileNames().get(i));
@@ -67,20 +65,7 @@ public class Main {
 
 		}
 
-
 		System.out.println(massiv);
 		System.out.println("End of program");
 	}
 }
-
-//MyFileReader myFileReader = new MyFileReader();
-//ArrayHandler arrayHandler = new ArrayHandler();
-
-//ArrayList firstArray = myFileReader.readFile("numbers.txt");
-//ArrayList secondArray = myFileReader.readFile("numbers2.txt");
-
-//ArrayList intFirstArray = arrayHandler.toIntArray(firstArray);
-//ArrayList intSecondArray = arrayHandler.toIntArray(secondArray);
-
-//System.out.println(intFirstArray);
-//System.out.println(intSecondArray);
