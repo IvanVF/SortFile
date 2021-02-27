@@ -47,20 +47,34 @@ public class SortAlgorithm {
 			if (numberOfEndedFiles == listOfFiles.size())
 				break; //Если количество файлов с кончившимися строками равно общему кол-ву файлов - прерываем
 
-			int min = valueOfLines[0];
-			int fileNumber = 0; //Номер файла с минимальным значением
-			for (int i = 0; i < listOfFiles.size(); i++) { //Выясняем номер файла с минимальным значением
-				if (min > valueOfLines[i]) {
-					min = valueOfLines[i];
-					fileNumber = i;
+			int minOrMax = valueOfLines[0];
+			int fileNumber = 0; //Номер файла с минимальным/максимальным значением
+			if ("-d".equals(inputWindows.getSortType())) { //Для сортировки по убыванию
+				for (int i = 0; i < listOfFiles.size(); i++) { //Выясняем номер файла с максимальным значением
+					if (minOrMax < valueOfLines[i]) {
+						minOrMax = valueOfLines[i];
+						fileNumber = i;
+					}
+				}
+			} else { //Для сортировки по возрастанию
+				for (int i = 0; i < listOfFiles.size(); i++) { //Выясняем номер файла с минимальным значением
+					if (minOrMax > valueOfLines[i]) {
+						minOrMax = valueOfLines[i];
+						fileNumber = i;
+					}
 				}
 			}
-			massiv.add(min);//TODO заменить на запись в файл
-			myFileWriter.writeOneLineInFile(Integer.toString(min));
+
+			massiv.add(minOrMax);//TODO заменить на запись в файл
+			myFileWriter.writeOneLineInFile(Integer.toString(minOrMax));
 			try {
 				countLinesInFiles.set(fileNumber, countLinesInFiles.get(fileNumber) + 1);
 				if (countLinesInFiles.get(fileNumber) == listOfFiles.get(fileNumber).getNumberOfLines()) { //Если счётчик номера строки равен количеству строк в файле присваеваем строке макс возможное значение
-					valueOfLines[fileNumber] = Integer.MAX_VALUE;
+					if ("-d".equals(inputWindows.getSortType())) {
+						valueOfLines[fileNumber] = Integer.MIN_VALUE;
+					} else {
+						valueOfLines[fileNumber] = Integer.MAX_VALUE;
+					}
 				}
 				valueOfLines[fileNumber] = Integer.parseInt(listOfFiles.get(fileNumber).readFileLine());
 			} catch (NumberFormatException e) {

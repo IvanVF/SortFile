@@ -20,14 +20,14 @@ public class InputWindows {
 
 	public void collectInputInformation() {
 
-//		/**
-//		 *Ввод режима сортировки
-//		 */
-//		sortType = JOptionPane.showInputDialog("Введите режим сортировки: -a по возрвстанию, -d по убыванию");
-//		if (!sortType.equals("-a") && !sortType.equals("-d")) {
-//			JOptionPane.showMessageDialog(null, "Режим сортировки указан неверно. Будет выполнена сортировка по возрастанию");
-//		}
-//
+		/**
+		 *Ввод режима сортировки
+		 */
+		sortType = JOptionPane.showInputDialog("Введите режим сортировки: -a по возрвстанию, -d по убыванию");
+		if (!sortType.equals("-a") && !sortType.equals("-d")) {
+			JOptionPane.showMessageDialog(null, "Режим сортировки указан неверно. Будет выполнена сортировка по возрастанию");
+		}
+
 //		/**
 //		 *Ввод типа данных во входных файлах
 //		 */
