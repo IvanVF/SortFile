@@ -34,19 +34,19 @@ public class InputWindows {
 //		while (!dataType.equals("-s") && !dataType.equals("-i")) {
 //			dataType = JOptionPane.showInputDialog("Введите тип данных: -s строковый, -i целочисленный");
 //		}
-//
-//		/**
-//		 *Ввод имени выходного файла
-//		 */
-//		while (outputFileName.equals("")) {
-//			outputFileName = JOptionPane.showInputDialog("Введите имя выходного файла");
-//			if (!outputFileName.matches("[a-zA-Zа-яА-ЯёЁ0-9_-]+")) {
-//				JOptionPane.showMessageDialog(
-//					null, "Имя файла должно содержать буквы русского и латинского алфавита, цифры, символы '-', '_' и не содержать спецсимволов");
-//				outputFileName = "";
-//			}
-//		}
-//
+
+		/**
+		 *Ввод имени выходного файла
+		 */
+		while (outputFileName.equals("")) {
+			outputFileName = JOptionPane.showInputDialog("Введите имя выходного файла");
+			if (!outputFileName.matches("[a-zA-Zа-яА-ЯёЁ0-9_-]+")) {
+				JOptionPane.showMessageDialog(
+					null, "Имя файла должно содержать буквы русского и латинского алфавита, цифры, символы '-', '_' и не содержать спецсимволов");
+				outputFileName = "";
+			}
+		}
+
 		/**
 		 *Ввод количества входных файлов
 		 */
@@ -69,12 +69,12 @@ public class InputWindows {
 		 */
 		for (int i = 0; i < numberOfInputFiles; i++) {
 			String inpFName;
-			inpFName = JOptionPane.showInputDialog("Введите имя " + (i + 1) + " входного файла");
-			if (inpFName.matches("[.a-zA-Zа-яА-ЯёЁ0-9_-]+") && !inpFName.isEmpty()) {
-				inputFileNames.add(inpFName);
+			inpFName = JOptionPane.showInputDialog("Введите имя " + (i + 1) + " входного файла, или путь к файлу. Формат файла должен быть .txt");
+			if (inpFName.matches("[/a-zA-Zа-яА-ЯёЁ0-9_-]+") && !inpFName.isEmpty()) {
+				inputFileNames.add(inpFName + ".txt");
 			} else {
 				JOptionPane.showMessageDialog(
-					null, "Имя файла должно содержать буквы русского и латинского алфавита, цифры, символы '-', '_' и не содержать спецсимволов");
+					null, "Имя файла или путь к нему должны содержать буквы русского и латинского алфавита, цифры, символы '-', '_', '/' и не содержать спецсимволов.");
 				i--;
 			}
 
