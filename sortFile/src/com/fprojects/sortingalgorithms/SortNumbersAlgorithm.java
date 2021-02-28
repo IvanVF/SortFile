@@ -13,7 +13,6 @@ public class SortNumbersAlgorithm {
 
 	public void sortFiles(InputWindows inputWindows) throws IOException {
 
-		ArrayList<Integer> massiv = new ArrayList(); //TODO заменить на запись в файл
 		MyFileReader myFileReader = new MyFileReader();
 		MyFileWriter myFileWriter = new MyFileWriter();
 		myFileWriter.createFileWriter(inputWindows);
@@ -61,7 +60,6 @@ public class SortNumbersAlgorithm {
 				}
 			}
 
-			massiv.add(minOrMax);//TODO заменить на запись в файл
 			myFileWriter.writeOneLineInFile(Integer.toString(minOrMax));
 			try {
 				countLinesInFiles.set(fileNumber, countLinesInFiles.get(fileNumber) + 1);
@@ -78,7 +76,6 @@ public class SortNumbersAlgorithm {
 			}
 
 		}
-		System.out.println(massiv);
 	}
 
 }
