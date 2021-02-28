@@ -65,7 +65,7 @@ public class SortStringsAlgorithm {
 
 			myFileWriter.writeOneLineInFile(minOrMax);
 			countLinesInFiles.set(fileNumber, countLinesInFiles.get(fileNumber) + 1);
-			if (countLinesInFiles.get(fileNumber) == listOfFiles.get(fileNumber).getNumberOfLines()) { //Если счётчик номера строки равен количеству строк в файле присваеваем строке макс возможное значение
+			if (countLinesInFiles.get(fileNumber) == listOfFiles.get(fileNumber).getNumberOfLines()) { //Если счётчик номера строки равен количеству строк в файле присваеваем строке макс endedLine
 				valueOfLines[fileNumber] = endedLine;
 			}
 			if (countLinesInFiles.get(fileNumber) < listOfFiles.get(fileNumber).getNumberOfLines()) {
