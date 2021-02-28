@@ -15,7 +15,7 @@ public class Main {
 		SortStringsAlgorithm sortStringsAlgorithm = new SortStringsAlgorithm();
 
 		inputWindows.collectInputInformation();
-		if (inputWindows.getDataType().equals("-i")) {
+		if ("-i".equals(inputWindows.getDataType())) {
 			sortNumbersAlgorithm.sortFiles(inputWindows);
 		} else {
 			sortStringsAlgorithm.sortFiles(inputWindows);

@@ -24,21 +24,21 @@ public class InputWindows {
 		 *Ввод режима сортировки
 		 */
 		sortType = JOptionPane.showInputDialog("Введите режим сортировки: -a по возрастанию, -d по убыванию");
-		if (!sortType.equals("-a") && !sortType.equals("-d")) {
+		if (!"-a".equals(sortType) && !"-d".equals(sortType)) {
 			JOptionPane.showMessageDialog(null, "Режим сортировки указан неверно. Будет выполнена сортировка по возрастанию");
 		}
 
 		/**
 		 *Ввод типа данных во входных файлах
 		 */
-		while (!dataType.equals("-s") && !dataType.equals("-i")) {
+		while (!"-s".equals(dataType) && !"-i".equals(dataType)) {
 			dataType = JOptionPane.showInputDialog("Введите тип данных: -s строковый, -i целочисленный");
 		}
 
 		/**
 		 *Ввод имени выходного файла
 		 */
-		while (outputFileName.equals("")) {
+		while ("".equals(outputFileName)) {
 			outputFileName = JOptionPane.showInputDialog("Введите имя выходного файла");
 			if (!outputFileName.matches("[a-zA-Zа-яА-ЯёЁ0-9_-]+")) {
 				JOptionPane.showMessageDialog(
@@ -50,9 +50,9 @@ public class InputWindows {
 		/**
 		 *Ввод количества входных файлов
 		 */
-		while (numOFiles.equals("")) {
+		while ("".equals(numOFiles)) {
 			numOFiles = JOptionPane.showInputDialog("Введите количество входных файлов не меньше 1");
-			if (numOFiles.equals("0") || !numOFiles.matches("[0-9]+")) {
+			if ("0".equals(numOFiles) || !numOFiles.matches("[0-9]+")) {
 				JOptionPane.showMessageDialog(null, "Количество входных файлов должно быть целочисленным и не меньше 1");
 				numOFiles = "";
 			} else {
