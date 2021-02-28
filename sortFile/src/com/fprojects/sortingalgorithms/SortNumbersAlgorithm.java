@@ -7,7 +7,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- *Построковая сортировка и запись в фойл
+ *Построковая сортировка чисел и запись в фойл
  */
 public class SortNumbersAlgorithm {
 

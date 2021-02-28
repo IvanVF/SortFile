@@ -33,10 +33,8 @@ public class MyFileWriter {
 			fileWriter.write(line);
 			fileWriter.append("\r\n");
 			fileWriter.flush();
-		} catch (IOException e) {
-			System.out.println("Не удалось записать данные в файл. Описание ошибки: " + e.getMessage());
-		} catch (NullPointerException e) {
-			System.out.println("Не удалось записать данные в файл. Описание ошибки: " + e.getMessage());
+		} catch (IOException | NullPointerException e) {
+			JOptionPane.showMessageDialog(null, "Не удалось записать данные в файл. Описание ошибки: " + e.getMessage());
 		}
 	}
 }

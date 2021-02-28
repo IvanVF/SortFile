@@ -6,13 +6,16 @@ import com.fprojects.inputwindows.*;
 import java.io.*;
 import java.util.*;
 
+/**
+ *Построковая сортировка строк и запись в фойл
+ */
 public class SortStringsAlgorithm {
 
 	public void sortFiles(InputWindows inputWindows) throws IOException {
 		MyFileReader myFileReader = new MyFileReader();
 		MyFileWriter myFileWriter = new MyFileWriter();
 		myFileWriter.createFileWriter(inputWindows);
-		String endedLine = UUID.randomUUID().toString();
+		String endedLine = UUID.randomUUID().toString(); //метка для определения последней строки в файле
 
 		ArrayList<MyFileReader> listOfFiles = myFileReader.crtListOfFiles(inputWindows); //Список с параметрами каждого файла и ридером
 		ArrayList<Integer> countLinesInFiles = new ArrayList<>(); //Список счётчиков номера текущей линии (строки) в каждом файле
@@ -53,7 +56,7 @@ public class SortStringsAlgorithm {
 				}
 			} else { //Для сортировки по возрастанию
 				for (int i = 0; i < listOfFiles.size(); i++) { //Выясняем номер файла с минимальным значением
-					if (minOrMax != null && minOrMax.length() > valueOfLines[i].length() && !endedLine.equals(valueOfLines[i])) {
+					if (null != minOrMax && minOrMax.length() > valueOfLines[i].length() && !endedLine.equals(valueOfLines[i])) {
 						minOrMax = valueOfLines[i];
 						fileNumber = i;
 					}
@@ -62,13 +65,8 @@ public class SortStringsAlgorithm {
 
 			myFileWriter.writeOneLineInFile(minOrMax);
 			countLinesInFiles.set(fileNumber, countLinesInFiles.get(fileNumber) + 1);
-			if (countLinesInFiles.get(fileNumber) == listOfFiles.get(
-				fileNumber).getNumberOfLines()) { //Если счётчик номера строки равен количеству строк в файле присваеваем строке макс возможное значение
-				if ("-d".equals(inputWindows.getSortType())) {
-					valueOfLines[fileNumber] = endedLine;
-				} else {
-					valueOfLines[fileNumber] = endedLine;
-				}
+			if (countLinesInFiles.get(fileNumber) == listOfFiles.get(fileNumber).getNumberOfLines()) { //Если счётчик номера строки равен количеству строк в файле присваеваем строке макс возможное значение
+				valueOfLines[fileNumber] = endedLine;
 			}
 			if (countLinesInFiles.get(fileNumber) < listOfFiles.get(fileNumber).getNumberOfLines()) {
 				valueOfLines[fileNumber] = listOfFiles.get(fileNumber).readFileLine();
