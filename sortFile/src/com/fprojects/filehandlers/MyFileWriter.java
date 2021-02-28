@@ -13,6 +13,9 @@ public class MyFileWriter {
 	private String fileName;
 	private FileWriter fileWriter;
 
+	/**
+	 *Создание FileWriter
+	 */
 	public void createFileWriter(InputWindows inputWindows) {
 		try {
 			fileName = inputWindows.getOutputFileName() + ".txt";
@@ -22,12 +25,17 @@ public class MyFileWriter {
 		}
 	}
 
+	/**
+	 *Запись в файл и переход на следующую строку
+	 */
 	public void writeOneLineInFile(String line) {
 		try {
 			fileWriter.write(line);
 			fileWriter.append("\r\n");
 			fileWriter.flush();
 		} catch (IOException e) {
+			System.out.println("Не удалось записать данные в файл. Описание ошибки: " + e.getMessage());
+		} catch (NullPointerException e) {
 			System.out.println("Не удалось записать данные в файл. Описание ошибки: " + e.getMessage());
 		}
 	}

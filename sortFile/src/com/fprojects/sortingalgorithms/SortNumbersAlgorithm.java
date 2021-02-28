@@ -9,23 +9,19 @@ import java.util.*;
 /**
  *Построковая сортировка и запись в фойл
  */
-public class SortAlgorithm {
+public class SortNumbersAlgorithm {
 
 	public void sortFiles(InputWindows inputWindows) throws IOException {
 
 		ArrayList<Integer> massiv = new ArrayList(); //TODO заменить на запись в файл
+		MyFileReader myFileReader = new MyFileReader();
 		MyFileWriter myFileWriter = new MyFileWriter();
 		myFileWriter.createFileWriter(inputWindows);
 
-		ArrayList<MyFileReader> listOfFiles = new ArrayList<>(); //Список с параметрами каждого файла и ридером
+		ArrayList<MyFileReader> listOfFiles = myFileReader.crtListOfFiles(inputWindows); //Список с параметрами каждого файла и ридером
 		ArrayList<Integer> countLinesInFiles = new ArrayList<>(); //Список счётчиков номера текущей линии (строки) в каждом файле
-		for (int i = 0; i < inputWindows.getNumberOfInputFiles(); i++) {
-			MyFileReader myFileReader = new MyFileReader();
-			myFileReader.crtReader((String)inputWindows.getInputFileNames().get(i));
-			if (myFileReader.getFileReader() != null) {
-				listOfFiles.add(myFileReader);
+		for (int i = 0; i < listOfFiles.size(); i++) {
 				countLinesInFiles.add(0);
-			}
 		}
 
 		int[] valueOfLines = new int[listOfFiles.size()];

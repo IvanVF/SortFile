@@ -1,5 +1,6 @@
 package com.fprojects.filehandlers;
 
+import com.fprojects.inputwindows.*;
 import lombok.*;
 
 import javax.swing.*;
@@ -47,6 +48,21 @@ public class MyFileReader {
 	public String readFileLine() throws IOException, NullPointerException {
 		String line = bufferedReader.readLine();
 		return line;
+	}
+
+	/**
+	 *Создание списка файлов с их параметрами
+	 */
+	public ArrayList<MyFileReader> crtListOfFiles(InputWindows inputWindows) {
+		ArrayList<MyFileReader> listOfFiles = new ArrayList<>();
+		for (int i = 0; i < inputWindows.getNumberOfInputFiles(); i++) {
+			MyFileReader myFileReader = new MyFileReader();
+			myFileReader.crtReader((String)inputWindows.getInputFileNames().get(i));
+			if (myFileReader.getFileReader() != null) {
+				listOfFiles.add(myFileReader);
+			}
+		}
+		return listOfFiles;
 	}
 
 	/**

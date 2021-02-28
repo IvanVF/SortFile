@@ -23,17 +23,17 @@ public class InputWindows {
 		/**
 		 *Ввод режима сортировки
 		 */
-		sortType = JOptionPane.showInputDialog("Введите режим сортировки: -a по возрвстанию, -d по убыванию");
+		sortType = JOptionPane.showInputDialog("Введите режим сортировки: -a по возрастанию, -d по убыванию");
 		if (!sortType.equals("-a") && !sortType.equals("-d")) {
 			JOptionPane.showMessageDialog(null, "Режим сортировки указан неверно. Будет выполнена сортировка по возрастанию");
 		}
 
-//		/**
-//		 *Ввод типа данных во входных файлах
-//		 */
-//		while (!dataType.equals("-s") && !dataType.equals("-i")) {
-//			dataType = JOptionPane.showInputDialog("Введите тип данных: -s строковый, -i целочисленный");
-//		}
+		/**
+		 *Ввод типа данных во входных файлах
+		 */
+		while (!dataType.equals("-s") && !dataType.equals("-i")) {
+			dataType = JOptionPane.showInputDialog("Введите тип данных: -s строковый, -i целочисленный");
+		}
 
 		/**
 		 *Ввод имени выходного файла

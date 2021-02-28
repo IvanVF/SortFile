@@ -11,10 +11,16 @@ public class Main {
 		System.out.println("Program started successful");
 
 		InputWindows inputWindows = new InputWindows();
-		SortAlgorithm sortAlgorithm = new SortAlgorithm();
+		SortNumbersAlgorithm sortNumbersAlgorithm = new SortNumbersAlgorithm();
+		SortStringsAlgorithm sortStringsAlgorithm = new SortStringsAlgorithm();
 
 		inputWindows.collectInputInformation();
-		sortAlgorithm.sortFiles(inputWindows);
+		if (inputWindows.getDataType().equals("-i")) {
+			sortNumbersAlgorithm.sortFiles(inputWindows);
+		} else {
+			sortStringsAlgorithm.sortFiles(inputWindows);
+		}
+
 
 		System.out.println("End of program");
 	}
